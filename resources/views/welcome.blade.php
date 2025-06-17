@@ -11,30 +11,7 @@
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
 
         <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            {{-- Fallback: Minimal Tailwind Play CDN for demonstration if Vite isn't running --}}
-            <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-            <script>
-                tailwind.config = {
-                  theme: {
-                    extend: {
-                      fontFamily: {
-                        sans: ['Instrument Sans', 'ui-sans-serif', 'system-ui'],
-                      },
-                    }
-                  }
-                }
-            </script>
-            <style type="text/tailwindcss">
-                @layer utilities {
-                  .text-balance {
-                    text-wrap: balance;
-                  }
-                }
-            </style>
-        @endif
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="bg-gray-100 text-gray-800 font-sans antialiased">
 
