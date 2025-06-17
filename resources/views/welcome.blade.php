@@ -12,6 +12,10 @@
 
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        {{-- Fallback untuk CDN Tailwind jika Vite gagal --}}
+@unless (file_exists(public_path('build/manifest.json')))
+    <script src="https://cdn.tailwindcss.com"></script>
+@endunless
     </head>
     <body class="bg-gray-100 text-gray-800 font-sans antialiased">
 
